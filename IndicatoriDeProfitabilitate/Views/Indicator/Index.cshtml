@@ -1,0 +1,52 @@
+﻿@model IEnumerable<IndicatoriDeProfitabilitate.Models.IndicatorModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.IdIndicator)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Denumire)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descriere)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Formula_de_calcul)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.IdIndicator)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Denumire)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descriere)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Formula_de_calcul)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdIndicator }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdIndicator }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.IdIndicator  })
+        </td>
+    </tr>
+}
+
+</table>

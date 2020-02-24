@@ -1,0 +1,40 @@
+﻿@model IEnumerable<IndicatoriDeProfitabilitate.Models.CompanieModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.IdCompanie)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Nume_Companie)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.IdCompanie)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Nume_Companie)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.IdCompanie  }) |
+            @Html.ActionLink("Details", "Details", new {  id=item.IdCompanie }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdCompanie })
+        </td>
+    </tr>
+}
+
+</table>

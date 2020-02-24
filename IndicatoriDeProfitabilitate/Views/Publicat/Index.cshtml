@@ -1,0 +1,58 @@
+﻿@model IEnumerable<IndicatoriDeProfitabilitate.Models.PublicatModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdPublicat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCompanie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdRotatie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTimeAdded)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdPublicat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdCompanie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdRotatie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTimeAdded)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.IdPublicat  }) |
+            @Html.ActionLink("Details", "Details", new {  id=item.IdPublicat }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.IdPublicat })
+        </td>
+    </tr>
+}
+
+</table>
