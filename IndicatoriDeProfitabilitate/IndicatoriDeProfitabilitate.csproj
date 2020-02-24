@@ -209,6 +209,7 @@
     <Compile Include="Repository\IndicatorRepository.cs" />
     <Compile Include="Repository\PublicatRepository.cs" />
     <Compile Include="Repository\RotatieRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
