@@ -17,9 +17,10 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // GET: Indicator/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
-            return View();
+            Models.IndicatorModel indicatorModel = indicatorRepository.GetIndicatorById(id);
+            return View("IndicatorDetails", indicatorModel);
         }
 
         // GET: Indicator/Create
@@ -47,46 +48,50 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // GET: Indicator/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            Models.IndicatorModel indicatorModel = indicatorRepository.GetIndicatorById(id);
+            return View("EditIndicator", indicatorModel);
         }
 
         // POST: Indicator/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Guid id, FormCollection collection)
         {
             try
             {
-                // TODO: Add update logic here
+                Models.IndicatorModel indicatorModel = new Models.IndicatorModel();
+                UpdateModel(indicatorModel);
+                indicatorRepository.UpdateIndicator(indicatorModel);
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View("EditIndicator");
             }
         }
 
         // GET: Indicator/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
-            return View();
+            Models.IndicatorModel indicatorModel = indicatorRepository.GetIndicatorById(id);
+            return View("DeleteIndicator", indicatorModel);
         }
 
         // POST: Indicator/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Guid id, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
+                indicatorRepository.DeleteIndicator(id);
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View("DeleteIndicator");
             }
         }
     }

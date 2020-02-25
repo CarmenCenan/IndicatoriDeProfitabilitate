@@ -47,24 +47,27 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // GET: Rotatie/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            Models.RotatieModel rotatieModel = rotatieRepository.GetRotatieById(id);
+
+            return View("EditRotatie", rotatieModel);
         }
 
         // POST: Rotatie/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Guid id, FormCollection collection)
         {
             try
             {
-                // TODO: Add update logic here
-
+                Models.RotatieModel rotatieModel = new Models.RotatieModel();
+                UpdateModel(rotatieModel);
+                rotatieRepository.UpdateRotatie(rotatieModel);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View("EditRotatie");
             }
         }
 

@@ -1,0 +1,35 @@
+﻿@model IndicatoriDeProfitabilitate.Models.CompanieModel
+
+@{
+    ViewBag.Title = "DetailsCompanie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DetailsCompanie</h2>
+
+<div>
+    <h4>CompanieModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCompanie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCompanie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nume_Companie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nume_Companie)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.IdCompanie }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

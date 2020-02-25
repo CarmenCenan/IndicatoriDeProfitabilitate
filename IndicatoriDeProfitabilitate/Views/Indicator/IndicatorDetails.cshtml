@@ -1,0 +1,51 @@
+﻿@model IndicatoriDeProfitabilitate.Models.IndicatorModel
+
+@{
+    ViewBag.Title = "IndicatorDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>IndicatorDetails</h2>
+
+<div>
+    <h4>IndicatorModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayNameFor(model => model.IdIndicator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdIndicator)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Denumire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Denumire)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descriere)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descriere)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Formula_de_calcul)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Formula_de_calcul)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdIndicator }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -19,9 +19,11 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // GET: Companie/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
-            return View();
+            Models.CompanieModel companieModel = companieRepository.GetCompanieById(id);
+
+            return View("DetailsCompanie", companieModel);
         }
 
         // GET: Companie/Create
@@ -50,46 +52,50 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // GET: Companie/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            Models.CompanieModel companieModel = companieRepository.GetCompanieById(id);
+            return View("EditCompanie", companieModel);
         }
 
         // POST: Companie/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Guid id, FormCollection collection)
         {
             try
             {
-                // TODO: Add update logic here
+                Models.CompanieModel companieModel = new Models.CompanieModel();
+                UpdateModel(companieModel);
+                companieRepository.UpdateCompanie(companieModel);
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View("EditCompanie");
             }
         }
 
         // GET: Companie/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
-            return View();
+            Models.CompanieModel companieModel = companieRepository.GetCompanieById(id);
+            return View("DeleteCompanie", companieModel);
         }
 
         // POST: Companie/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Guid id, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
+                companieRepository.DeleteCompanie(id);
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View("DeleteCompanie");
             }
         }
     }

@@ -188,6 +188,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PublicatController.cs" />
     <Compile Include="Controllers\RotatieController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -288,6 +289,18 @@
     <Content Include="Views\Publicat\Index.cshtml" />
     <Content Include="Views\Rotatie\CreateRotatie.cshtml" />
     <Content Include="Views\Rotatie\Index.cshtml" />
+    <Content Include="Views\User\CreateUser.cshtml" />
+    <Content Include="Views\Companie\EditCompanie.cshtml" />
+    <Content Include="Views\Companie\DeleteCompanie.cshtml" />
+    <Content Include="Views\Companie\DetailsCompanie.cshtml" />
+    <Content Include="Views\Indicator\EditIndicator.cshtml" />
+    <Content Include="Views\Indicator\DeleteIndicator.cshtml" />
+    <Content Include="Views\Indicator\IndicatorDetails.cshtml" />
+    <Content Include="Views\User\EditUser.cshtml" />
+    <Content Include="Views\User\DeleteUser.cshtml" />
+    <Content Include="Views\User\UserDetails.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Rotatie\EditRotatie.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
