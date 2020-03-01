@@ -1,4 +1,5 @@
 ﻿using IndicatoriDeProfitabilitate.Models;
+using IndicatoriDeProfitabilitate.Models.DBObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,17 @@ namespace IndicatoriDeProfitabilitate.Repository
             return MapDbObjectToModel(dbContext.Rotatiis.FirstOrDefault(x => x.IdRotatie == Id));
 
         }
+        //private void ButtonValoare_Indicator (object sender, RouteConfig routeConfig)
+        //{
+        //    List<RotatieModel> valoare_indicatorList = new List<RotatieModel>();
+           
+        //    foreach (Models.DBObjects.Rotatii dbRotatie in dbContext.Rotatiis)
+        //    {
+        //        valoare_indicatorList.Add(MapDbObjectToModel(dbRotatie));
+        //    }
+           
+        //}
+
         public void InsertRotatie(RotatieModel rotatieModel)
         {
             rotatieModel.IdRotatie = Guid.NewGuid();
@@ -103,5 +115,27 @@ namespace IndicatoriDeProfitabilitate.Repository
             }
             return null;
         }
+        //public ViewModels.RotatiePublicatiiViewModel GetRotatiePublicatii(Guid rotatieId)
+        //{
+        //    ViewModels.RotatiePublicatiiViewModel rotatiePublicatiiViewModel = new ViewModels.RotatiePublicatiiViewModel();
+        //    Rotatie rotatie = dbContext.Rotatiis.FirstOrDefault(x => x.IdRotatie == rotatieId);
+        //    if (rotatie != null)
+        //    {
+        //        rotatiePublicatiiViewModel.Nume_Companie = rotatie.Nume_Companie;
+        //        rotatiePublicatiiViewModel.Valoare_Indicator = rotatie.Valoare_Indicator;
+               
+
+        //        IQueryable<Publicatii> rotatiePublicatii = dbContext.Publicatiis.Where(x => x.IdRotatie == rotatieId);
+        //        foreach (Publicatii dbPublicatii in rotatiePublicatii)
+        //        {
+        //            Publicatii publicatModel = new Publicatii();
+        //            publicatModel.Valoare_Indicator = dbPublicatii.Valoare_Indicator;
+        //            codeSnippetModel.ContentCode = dbCodeSnippet.ContentCode;
+        //            codeSnippetModel.Revision = dbCodeSnippet.Revision;
+        //            memberCodeSnippetsViewModel.CodeSnippets.Add(codeSnippetModel);
+        //        }
+        //    }
+        //    return memberCodeSnippetsViewModel;
+        //}
     }
 }

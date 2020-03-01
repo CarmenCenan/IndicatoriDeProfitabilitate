@@ -12,5 +12,6 @@ namespace IndicatoriDeProfitabilitate.Models
         public string Nume { get; set; }
         public string Prenume { get; set; }
         public string Functie { get; set; }
+
     }
 }

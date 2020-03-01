@@ -21,7 +21,7 @@ namespace IndicatoriDeProfitabilitate.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("calculindicatoriConnectionString", throwIfV1Schema: false)
         {
         }
 

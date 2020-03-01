@@ -27,10 +27,6 @@ namespace IndicatoriDeProfitabilitate.Controllers
         // GET: User/Create
         public ActionResult Create()
         {
-            var users = userRepository.GetAllUsers();
-            SelectList list = new SelectList(users, "IdUser", "Nume");
-            ViewData["Users"] = list;
-
             return View("CreateUser");
         }
 

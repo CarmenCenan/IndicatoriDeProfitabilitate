@@ -10,6 +10,7 @@ namespace IndicatoriDeProfitabilitate.Controllers
     {
         private Repository.RotatieRepository rotatieRepository = new Repository.RotatieRepository();
         // GET: Rotatie
+        [AllowAnonymous]
         public ActionResult Index()
         {
             List<Models.RotatieModel> rotatii = rotatieRepository.GetAllRotatii();
@@ -17,12 +18,15 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // GET: Rotatie/Details/5
-        public ActionResult Details(int id)
+        [AllowAnonymous]
+        public ActionResult Details(Guid id)
         {
-            return View();
+            Models.RotatieModel rotatieModel = rotatieRepository.GetRotatieById(id);
+            return View("RotatieDetails", rotatieModel);
         }
 
         // GET: Rotatie/Create
+        [Authorize (Roles = "User, Admin")]
         public ActionResult Create()
         {
             return View("CreateRotatie");
@@ -30,6 +34,7 @@ namespace IndicatoriDeProfitabilitate.Controllers
 
         // POST: Rotatie/Create
         [HttpPost]
+        [Authorize(Roles = "User, Admin")]
         public ActionResult Create(FormCollection collection)
         {
             try
@@ -47,6 +52,7 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // GET: Rotatie/Edit/5
+        [Authorize(Roles = "User, Admin")]
         public ActionResult Edit(Guid id)
         {
             Models.RotatieModel rotatieModel = rotatieRepository.GetRotatieById(id);
@@ -56,6 +62,7 @@ namespace IndicatoriDeProfitabilitate.Controllers
 
         // POST: Rotatie/Edit/5
         [HttpPost]
+        [Authorize(Roles = "User, Admin")]
         public ActionResult Edit(Guid id, FormCollection collection)
         {
             try
@@ -72,24 +79,27 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // GET: Rotatie/Delete/5
-        public ActionResult Delete(int id)
+        [Authorize(Roles = "Admin")]
+        public ActionResult Delete(Guid id)
         {
-            return View();
+            Models.RotatieModel rotatieModel = rotatieRepository.GetRotatieById(id);
+            return View("DeleteRotatie", rotatieModel);
         }
 
         // POST: Rotatie/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [Authorize(Roles = "Admin")]
+        public ActionResult Delete(Guid id, FormCollection collection)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                rotatieRepository.DeleteRotatie(id);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View("DeleteRotatie");
             }
         }
     }

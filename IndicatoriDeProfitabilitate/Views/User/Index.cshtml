@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>IndexUser</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -14,8 +14,8 @@
     <tr>
         @*<th>
             @Html.DisplayNameFor(model => model.IdUser)
-        </th>*@
-        @*<th>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.IdCompanie)
         </th>*@
         <th>
@@ -34,8 +34,8 @@
     <tr>
         @*<td>
             @Html.DisplayFor(modelItem => item.IdUser)
-        </td>*@
-        @*<td>
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.IdCompanie)
         </td>*@
         <td>
@@ -48,7 +48,7 @@
             @Html.DisplayFor(modelItem => item.Functie)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.IdUser}) |
+            @Html.ActionLink("Edit", "Edit", new {  id=item.IdUser }) |
             @Html.ActionLink("Details", "Details", new {  id=item.IdUser }) |
             @Html.ActionLink("Delete", "Delete", new {  id=item.IdUser })
         </td>

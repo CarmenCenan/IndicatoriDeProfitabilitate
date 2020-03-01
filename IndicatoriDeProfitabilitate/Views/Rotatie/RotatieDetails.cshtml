@@ -1,0 +1,75 @@
+﻿@model IndicatoriDeProfitabilitate.Models.RotatieModel
+
+@{
+    ViewBag.Title = "RotatieDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>RotatieDetails</h2>
+
+<div>
+    <h4>RotatieModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayNameFor(model => model.IdRotatie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdRotatie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCompanie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCompanie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdUser)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost_marfa_vanduta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost_marfa_vanduta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Valoare_stoc_mediu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valoare_stoc_mediu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Valoare_indicator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valoare_indicator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Public)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Public)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdRotatie }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

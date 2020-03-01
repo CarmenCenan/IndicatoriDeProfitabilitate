@@ -12,6 +12,7 @@ namespace IndicatoriDeProfitabilitate.Controllers
     {
         private Repository.CompanieRepository companieRepository = new Repository.CompanieRepository();
         // GET: Companie
+       [AllowAnonymous]
         public ActionResult Index()
         {
             List<Models.CompanieModel> companii =companieRepository.GetAllCompanii();
@@ -19,6 +20,7 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // GET: Companie/Details/5
+        [AllowAnonymous]
         public ActionResult Details(Guid id)
         {
             Models.CompanieModel companieModel = companieRepository.GetCompanieById(id);
@@ -27,12 +29,14 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // GET: Companie/Create
+        [Authorize (Roles = "User, Admin")]
         public ActionResult Create()
         {
             return View("CreateCompanie");
         }
 
         // POST: Companie/Create
+        [Authorize (Roles ="User, Admin")]
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -52,6 +56,7 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // GET: Companie/Edit/5
+        [Authorize (Roles = "User, Admin")]
         public ActionResult Edit(Guid id)
         {
             Models.CompanieModel companieModel = companieRepository.GetCompanieById(id);
@@ -59,6 +64,7 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // POST: Companie/Edit/5
+        [Authorize(Roles = "User, Admin")]
         [HttpPost]
         public ActionResult Edit(Guid id, FormCollection collection)
         {
@@ -77,6 +83,7 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // GET: Companie/Delete/5
+        [Authorize(Roles = "User, Admin")]
         public ActionResult Delete(Guid id)
         {
             Models.CompanieModel companieModel = companieRepository.GetCompanieById(id);
@@ -84,6 +91,7 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // POST: Companie/Delete/5
+        [Authorize(Roles = "User, Admin")]
         [HttpPost]
         public ActionResult Delete(Guid id, FormCollection collection)
         {

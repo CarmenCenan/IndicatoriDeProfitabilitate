@@ -1,13 +1,13 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+   
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-    background-image: url('file:///C:\Users\calin\Desktop\IndicatoriDeProfitabilitate\IndicatoriDeProfitabilitate\IndicatoriDeProfitabilitate\Content\Image\calculadora-2-1241306.jpg');
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 

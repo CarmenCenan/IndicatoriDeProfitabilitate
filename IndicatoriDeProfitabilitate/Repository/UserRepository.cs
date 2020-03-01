@@ -9,7 +9,6 @@ namespace IndicatoriDeProfitabilitate.Repository
     public class UserRepository
     {
         private Models.DBObjects.CalculIndicatoriModelsDataContext dbContext;
-
         public UserRepository()
         {
             this.dbContext = new Models.DBObjects.CalculIndicatoriModelsDataContext();
@@ -97,5 +96,6 @@ namespace IndicatoriDeProfitabilitate.Repository
             }
             return null;
         }
+       
     }
 }

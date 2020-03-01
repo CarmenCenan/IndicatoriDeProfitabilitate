@@ -212,6 +212,7 @@
     <Compile Include="Repository\RotatieRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\RotatiePublicatiiViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\calculindicatori.mdf" />
@@ -299,8 +300,10 @@
     <Content Include="Views\User\EditUser.cshtml" />
     <Content Include="Views\User\DeleteUser.cshtml" />
     <Content Include="Views\User\UserDetails.cshtml" />
-    <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Rotatie\EditRotatie.cshtml" />
+    <Content Include="Views\Rotatie\DeleteRotatie.cshtml" />
+    <Content Include="Views\Rotatie\RotatieDetails.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

@@ -10,6 +10,7 @@ namespace IndicatoriDeProfitabilitate.Controllers
     {
         private Repository.IndicatorRepository indicatorRepository = new Repository.IndicatorRepository();
         // GET: Indicator
+        [AllowAnonymous]
         public ActionResult Index()
         {
             List<Models.IndicatorModel> indicatori = indicatorRepository.GetAllIndicatori();
@@ -17,6 +18,7 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // GET: Indicator/Details/5
+        [AllowAnonymous]
         public ActionResult Details(Guid id)
         {
             Models.IndicatorModel indicatorModel = indicatorRepository.GetIndicatorById(id);
@@ -24,12 +26,14 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // GET: Indicator/Create
+        [Authorize(Roles ="User, Admin")]
         public ActionResult Create()
         {
             return View("CreateIndicator");
         }
 
         // POST: Indicator/Create
+        [Authorize(Roles = "User, Admin")]
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -37,6 +41,12 @@ namespace IndicatoriDeProfitabilitate.Controllers
             {
                 Models.IndicatorModel indicatorModel = new Models.IndicatorModel();
                 UpdateModel(indicatorModel);
+                if (User.Identity.IsAuthenticated) //daca avem utilizator logat
+                {
+                    indicatorModel.Denumire = User.Identity.Name + ": " + indicatorModel.Denumire;
+                    indicatorModel.Descriere = indicatorModel.Descriere + "," + User.Identity.Name;
+                }
+                //
                 indicatorRepository.InsertIndicator(indicatorModel);
 
                 return RedirectToAction("Index");
@@ -48,6 +58,7 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // GET: Indicator/Edit/5
+        [Authorize(Roles = "User, Admin")]
         public ActionResult Edit(Guid id)
         {
             Models.IndicatorModel indicatorModel = indicatorRepository.GetIndicatorById(id);
@@ -55,6 +66,7 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // POST: Indicator/Edit/5
+        [Authorize(Roles = "User, Admin")]
         [HttpPost]
         public ActionResult Edit(Guid id, FormCollection collection)
         {
@@ -73,6 +85,7 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // GET: Indicator/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(Guid id)
         {
             Models.IndicatorModel indicatorModel = indicatorRepository.GetIndicatorById(id);
@@ -81,6 +94,7 @@ namespace IndicatoriDeProfitabilitate.Controllers
 
         // POST: Indicator/Delete/5
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(Guid id, FormCollection collection)
         {
             try
