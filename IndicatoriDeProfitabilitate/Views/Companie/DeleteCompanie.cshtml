@@ -1,11 +1,11 @@
 ﻿@model IndicatoriDeProfitabilitate.Models.CompanieModel
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "DeleteCompanie";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>Sterge</h2>
 
 <h3>Esti sigur/a ca vrei sa stergi?</h3>
 <div>
@@ -26,6 +26,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.Nume_Companie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CUI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CUI)
         </dd>
 
     </dl>

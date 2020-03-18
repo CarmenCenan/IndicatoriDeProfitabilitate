@@ -57,6 +57,11 @@ namespace IndicatoriDeProfitabilitate.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                return RedirectToAction("Index", "Home");
+
+            if (User.Identity.IsAuthenticated && User.IsInRole("User"))
+            
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }

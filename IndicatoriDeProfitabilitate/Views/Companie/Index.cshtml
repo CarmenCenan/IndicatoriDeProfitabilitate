@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Companii listate</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -18,23 +18,37 @@
         <th>
             @Html.DisplayNameFor(model => model.Nume_Companie)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.CUI)
+        </th>
+        
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        @*<td>
+<tr>
+    @*<td>
             @Html.DisplayFor(modelItem => item.IdCompanie)
         </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.Nume_Companie)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.IdCompanie  }) |
-            @Html.ActionLink("Details", "Details", new {  id=item.IdCompanie }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdCompanie })
-        </td>
-    </tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nume_Companie)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CUI)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.IdCompanie }) |
+        @Html.ActionLink("Details", "Details", new { id = item.IdCompanie }) |
+
+        @{
+
+            if (User.IsInRole("Admin") && item.Nume_Companie.Contains(User.Identity.Name))
+            {
+                @Html.ActionLink("Delete", "Delete", new { id = item.IdCompanie })
+            }
+        }
+
+
+</tr>
 }
 
 </table>

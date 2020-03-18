@@ -30,9 +30,6 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertCompanii(Companii instance);
-    partial void UpdateCompanii(Companii instance);
-    partial void DeleteCompanii(Companii instance);
     partial void InsertIndicatori(Indicatori instance);
     partial void UpdateIndicatori(Indicatori instance);
     partial void DeleteIndicatori(Indicatori instance);
@@ -45,6 +42,9 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
+    partial void InsertCompanii(Companii instance);
+    partial void UpdateCompanii(Companii instance);
+    partial void DeleteCompanii(Companii instance);
     #endregion
 		
 		public CalculIndicatoriModelsDataContext() : 
@@ -75,14 +75,6 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<Companii> Companiis
-		{
-			get
-			{
-				return this.GetTable<Companii>();
-			}
 		}
 		
 		public System.Data.Linq.Table<Indicatori> Indicatoris
@@ -116,175 +108,13 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 				return this.GetTable<User>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Companii")]
-	public partial class Companii : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _IdCompanie;
-		
-		private string _Nume_Companie;
-		
-		private EntitySet<Publicatii> _Publicatiis;
-		
-		private EntitySet<Rotatii> _Rotatiis;
-		
-		private EntitySet<User> _Users;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdCompanieChanging(System.Guid value);
-    partial void OnIdCompanieChanged();
-    partial void OnNume_CompanieChanging(string value);
-    partial void OnNume_CompanieChanged();
-    #endregion
-		
-		public Companii()
-		{
-			this._Publicatiis = new EntitySet<Publicatii>(new Action<Publicatii>(this.attach_Publicatiis), new Action<Publicatii>(this.detach_Publicatiis));
-			this._Rotatiis = new EntitySet<Rotatii>(new Action<Rotatii>(this.attach_Rotatiis), new Action<Rotatii>(this.detach_Rotatiis));
-			this._Users = new EntitySet<User>(new Action<User>(this.attach_Users), new Action<User>(this.detach_Users));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCompanie", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid IdCompanie
+		public System.Data.Linq.Table<Companii> Companiis
 		{
 			get
 			{
-				return this._IdCompanie;
+				return this.GetTable<Companii>();
 			}
-			set
-			{
-				if ((this._IdCompanie != value))
-				{
-					this.OnIdCompanieChanging(value);
-					this.SendPropertyChanging();
-					this._IdCompanie = value;
-					this.SendPropertyChanged("IdCompanie");
-					this.OnIdCompanieChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nume_Companie", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Nume_Companie
-		{
-			get
-			{
-				return this._Nume_Companie;
-			}
-			set
-			{
-				if ((this._Nume_Companie != value))
-				{
-					this.OnNume_CompanieChanging(value);
-					this.SendPropertyChanging();
-					this._Nume_Companie = value;
-					this.SendPropertyChanged("Nume_Companie");
-					this.OnNume_CompanieChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Companii_Publicatii", Storage="_Publicatiis", ThisKey="IdCompanie", OtherKey="IdCompanie")]
-		public EntitySet<Publicatii> Publicatiis
-		{
-			get
-			{
-				return this._Publicatiis;
-			}
-			set
-			{
-				this._Publicatiis.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Companii_Rotatii", Storage="_Rotatiis", ThisKey="IdCompanie", OtherKey="IdCompanie")]
-		public EntitySet<Rotatii> Rotatiis
-		{
-			get
-			{
-				return this._Rotatiis;
-			}
-			set
-			{
-				this._Rotatiis.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Companii_User", Storage="_Users", ThisKey="IdCompanie", OtherKey="IdCompanie")]
-		public EntitySet<User> Users
-		{
-			get
-			{
-				return this._Users;
-			}
-			set
-			{
-				this._Users.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Publicatiis(Publicatii entity)
-		{
-			this.SendPropertyChanging();
-			entity.Companii = this;
-		}
-		
-		private void detach_Publicatiis(Publicatii entity)
-		{
-			this.SendPropertyChanging();
-			entity.Companii = null;
-		}
-		
-		private void attach_Rotatiis(Rotatii entity)
-		{
-			this.SendPropertyChanging();
-			entity.Companii = this;
-		}
-		
-		private void detach_Rotatiis(Rotatii entity)
-		{
-			this.SendPropertyChanging();
-			entity.Companii = null;
-		}
-		
-		private void attach_Users(User entity)
-		{
-			this.SendPropertyChanging();
-			entity.Companii = this;
-		}
-		
-		private void detach_Users(User entity)
-		{
-			this.SendPropertyChanging();
-			entity.Companii = null;
 		}
 	}
 	
@@ -438,11 +268,11 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 		
 		private System.DateTime _DateTimeAdded;
 		
-		private EntityRef<Companii> _Companii;
-		
 		private EntityRef<Rotatii> _Rotatii;
 		
 		private EntityRef<User> _User;
+		
+		private EntityRef<Companii> _Companii;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -462,9 +292,9 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 		
 		public Publicatii()
 		{
-			this._Companii = default(EntityRef<Companii>);
 			this._Rotatii = default(EntityRef<Rotatii>);
 			this._User = default(EntityRef<User>);
+			this._Companii = default(EntityRef<Companii>);
 			OnCreated();
 		}
 		
@@ -580,40 +410,6 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Companii_Publicatii", Storage="_Companii", ThisKey="IdCompanie", OtherKey="IdCompanie", IsForeignKey=true)]
-		public Companii Companii
-		{
-			get
-			{
-				return this._Companii.Entity;
-			}
-			set
-			{
-				Companii previousValue = this._Companii.Entity;
-				if (((previousValue != value) 
-							|| (this._Companii.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Companii.Entity = null;
-						previousValue.Publicatiis.Remove(this);
-					}
-					this._Companii.Entity = value;
-					if ((value != null))
-					{
-						value.Publicatiis.Add(this);
-						this._IdCompanie = value.IdCompanie;
-					}
-					else
-					{
-						this._IdCompanie = default(System.Guid);
-					}
-					this.SendPropertyChanged("Companii");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Rotatii_Publicatii", Storage="_Rotatii", ThisKey="IdRotatie", OtherKey="IdRotatie", IsForeignKey=true)]
 		public Rotatii Rotatii
 		{
@@ -682,6 +478,40 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Companii_Publicatii", Storage="_Companii", ThisKey="IdCompanie", OtherKey="IdCompanie", IsForeignKey=true)]
+		public Companii Companii
+		{
+			get
+			{
+				return this._Companii.Entity;
+			}
+			set
+			{
+				Companii previousValue = this._Companii.Entity;
+				if (((previousValue != value) 
+							|| (this._Companii.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Companii.Entity = null;
+						previousValue.Publicatiis.Remove(this);
+					}
+					this._Companii.Entity = value;
+					if ((value != null))
+					{
+						value.Publicatiis.Add(this);
+						this._IdCompanie = value.IdCompanie;
+					}
+					else
+					{
+						this._IdCompanie = default(System.Guid);
+					}
+					this.SendPropertyChanged("Companii");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -725,9 +555,9 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 		
 		private EntitySet<Publicatii> _Publicatiis;
 		
-		private EntityRef<Companii> _Companii;
-		
 		private EntityRef<User> _User;
+		
+		private EntityRef<Companii> _Companii;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -752,8 +582,8 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 		public Rotatii()
 		{
 			this._Publicatiis = new EntitySet<Publicatii>(new Action<Publicatii>(this.attach_Publicatiis), new Action<Publicatii>(this.detach_Publicatiis));
-			this._Companii = default(EntityRef<Companii>);
 			this._User = default(EntityRef<User>);
+			this._Companii = default(EntityRef<Companii>);
 			OnCreated();
 		}
 		
@@ -918,40 +748,6 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Companii_Rotatii", Storage="_Companii", ThisKey="IdCompanie", OtherKey="IdCompanie", IsForeignKey=true)]
-		public Companii Companii
-		{
-			get
-			{
-				return this._Companii.Entity;
-			}
-			set
-			{
-				Companii previousValue = this._Companii.Entity;
-				if (((previousValue != value) 
-							|| (this._Companii.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Companii.Entity = null;
-						previousValue.Rotatiis.Remove(this);
-					}
-					this._Companii.Entity = value;
-					if ((value != null))
-					{
-						value.Rotatiis.Add(this);
-						this._IdCompanie = value.IdCompanie;
-					}
-					else
-					{
-						this._IdCompanie = default(System.Guid);
-					}
-					this.SendPropertyChanged("Companii");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Rotatii", Storage="_User", ThisKey="IdUser", OtherKey="IdUser", IsForeignKey=true)]
 		public User User
 		{
@@ -982,6 +778,40 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 						this._IdUser = default(System.Guid);
 					}
 					this.SendPropertyChanged("User");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Companii_Rotatii", Storage="_Companii", ThisKey="IdCompanie", OtherKey="IdCompanie", IsForeignKey=true)]
+		public Companii Companii
+		{
+			get
+			{
+				return this._Companii.Entity;
+			}
+			set
+			{
+				Companii previousValue = this._Companii.Entity;
+				if (((previousValue != value) 
+							|| (this._Companii.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Companii.Entity = null;
+						previousValue.Rotatiis.Remove(this);
+					}
+					this._Companii.Entity = value;
+					if ((value != null))
+					{
+						value.Rotatiis.Add(this);
+						this._IdCompanie = value.IdCompanie;
+					}
+					else
+					{
+						this._IdCompanie = default(System.Guid);
+					}
+					this.SendPropertyChanged("Companii");
 				}
 			}
 		}
@@ -1027,7 +857,7 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 		
 		private System.Guid _IdUser;
 		
-		private System.Guid _IdCompanie;
+		private System.Nullable<System.Guid> _IdCompanie;
 		
 		private string _Nume;
 		
@@ -1047,7 +877,7 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
     partial void OnCreated();
     partial void OnIdUserChanging(System.Guid value);
     partial void OnIdUserChanged();
-    partial void OnIdCompanieChanging(System.Guid value);
+    partial void OnIdCompanieChanging(System.Nullable<System.Guid> value);
     partial void OnIdCompanieChanged();
     partial void OnNumeChanging(string value);
     partial void OnNumeChanged();
@@ -1085,8 +915,8 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCompanie", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid IdCompanie
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCompanie", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> IdCompanie
 		{
 			get
 			{
@@ -1222,7 +1052,7 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 					}
 					else
 					{
-						this._IdCompanie = default(System.Guid);
+						this._IdCompanie = default(Nullable<System.Guid>);
 					}
 					this.SendPropertyChanged("Companii");
 				}
@@ -1271,6 +1101,200 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 		{
 			this.SendPropertyChanging();
 			entity.User = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Companii")]
+	public partial class Companii : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _IdCompanie;
+		
+		private string _Nume_Companie;
+		
+		private string _CUI;
+		
+		private EntitySet<Publicatii> _Publicatiis;
+		
+		private EntitySet<Rotatii> _Rotatiis;
+		
+		private EntitySet<User> _Users;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdCompanieChanging(System.Guid value);
+    partial void OnIdCompanieChanged();
+    partial void OnNume_CompanieChanging(string value);
+    partial void OnNume_CompanieChanged();
+    partial void OnCUIChanging(string value);
+    partial void OnCUIChanged();
+    #endregion
+		
+		public Companii()
+		{
+			this._Publicatiis = new EntitySet<Publicatii>(new Action<Publicatii>(this.attach_Publicatiis), new Action<Publicatii>(this.detach_Publicatiis));
+			this._Rotatiis = new EntitySet<Rotatii>(new Action<Rotatii>(this.attach_Rotatiis), new Action<Rotatii>(this.detach_Rotatiis));
+			this._Users = new EntitySet<User>(new Action<User>(this.attach_Users), new Action<User>(this.detach_Users));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCompanie", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid IdCompanie
+		{
+			get
+			{
+				return this._IdCompanie;
+			}
+			set
+			{
+				if ((this._IdCompanie != value))
+				{
+					this.OnIdCompanieChanging(value);
+					this.SendPropertyChanging();
+					this._IdCompanie = value;
+					this.SendPropertyChanged("IdCompanie");
+					this.OnIdCompanieChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nume_Companie", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Nume_Companie
+		{
+			get
+			{
+				return this._Nume_Companie;
+			}
+			set
+			{
+				if ((this._Nume_Companie != value))
+				{
+					this.OnNume_CompanieChanging(value);
+					this.SendPropertyChanging();
+					this._Nume_Companie = value;
+					this.SendPropertyChanged("Nume_Companie");
+					this.OnNume_CompanieChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CUI", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string CUI
+		{
+			get
+			{
+				return this._CUI;
+			}
+			set
+			{
+				if ((this._CUI != value))
+				{
+					this.OnCUIChanging(value);
+					this.SendPropertyChanging();
+					this._CUI = value;
+					this.SendPropertyChanged("CUI");
+					this.OnCUIChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Companii_Publicatii", Storage="_Publicatiis", ThisKey="IdCompanie", OtherKey="IdCompanie")]
+		public EntitySet<Publicatii> Publicatiis
+		{
+			get
+			{
+				return this._Publicatiis;
+			}
+			set
+			{
+				this._Publicatiis.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Companii_Rotatii", Storage="_Rotatiis", ThisKey="IdCompanie", OtherKey="IdCompanie")]
+		public EntitySet<Rotatii> Rotatiis
+		{
+			get
+			{
+				return this._Rotatiis;
+			}
+			set
+			{
+				this._Rotatiis.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Companii_User", Storage="_Users", ThisKey="IdCompanie", OtherKey="IdCompanie")]
+		public EntitySet<User> Users
+		{
+			get
+			{
+				return this._Users;
+			}
+			set
+			{
+				this._Users.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Publicatiis(Publicatii entity)
+		{
+			this.SendPropertyChanging();
+			entity.Companii = this;
+		}
+		
+		private void detach_Publicatiis(Publicatii entity)
+		{
+			this.SendPropertyChanging();
+			entity.Companii = null;
+		}
+		
+		private void attach_Rotatiis(Rotatii entity)
+		{
+			this.SendPropertyChanging();
+			entity.Companii = this;
+		}
+		
+		private void detach_Rotatiis(Rotatii entity)
+		{
+			this.SendPropertyChanging();
+			entity.Companii = null;
+		}
+		
+		private void attach_Users(User entity)
+		{
+			this.SendPropertyChanging();
+			entity.Companii = this;
+		}
+		
+		private void detach_Users(User entity)
+		{
+			this.SendPropertyChanging();
+			entity.Companii = null;
 		}
 	}
 }

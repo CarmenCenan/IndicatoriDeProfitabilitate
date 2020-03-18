@@ -9,6 +9,7 @@ namespace IndicatoriDeProfitabilitate.Models
     {
         public Guid IdCompanie { get; set; }
         public string Nume_Companie { get; set; }
+        public string CUI { get; set; }
 
     }
 }

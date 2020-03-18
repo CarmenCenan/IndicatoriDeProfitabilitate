@@ -47,6 +47,7 @@ namespace IndicatoriDeProfitabilitate.Repository
             {
                 existingCompanie.IdCompanie = companieModel.IdCompanie;
                 existingCompanie.Nume_Companie = companieModel.Nume_Companie;
+                existingCompanie.CUI = companieModel.CUI;
 
                 dbContext.SubmitChanges();
             }
@@ -70,6 +71,7 @@ namespace IndicatoriDeProfitabilitate.Repository
             {
                 companieModel.IdCompanie = dbCompanie.IdCompanie;
                 companieModel.Nume_Companie = dbCompanie.Nume_Companie;
+                companieModel.CUI = dbCompanie.CUI;
 
                 return companieModel;
             }
@@ -83,6 +85,7 @@ namespace IndicatoriDeProfitabilitate.Repository
             {
                 dbCompanieModel.IdCompanie = companieModel.IdCompanie;
                 dbCompanieModel.Nume_Companie = companieModel.Nume_Companie;
+                dbCompanieModel.CUI = companieModel.CUI;
 
                 return dbCompanieModel;
             }

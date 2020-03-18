@@ -2,12 +2,6 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="CalculIndicatoriModels">
   <DataContextMoniker Name="/CalculIndicatoriModelsDataContext" />
   <nestedChildShapes>
-    <classShape Id="eab27ae1-3c61-401c-adfa-71da648b3f17" absoluteBounds="3.5, 2.875, 2, 1.1939925130208333">
-      <DataClassMoniker Name="/CalculIndicatoriModelsDataContext/Companii" />
-      <nestedChildShapes>
-        <elementListCompartment Id="d72ac946-274c-4537-a772-6d562e31a8ec" absoluteBounds="3.5150000000000006, 3.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="4f748fc9-0458-4d5d-a31f-2915a77d39c5" absoluteBounds="7.625, 0.5, 2, 1.5785953776041666">
       <DataClassMoniker Name="/CalculIndicatoriModelsDataContext/Indicatori" />
       <nestedChildShapes>
@@ -20,58 +14,64 @@
         <elementListCompartment Id="93cc90a1-c2f4-4340-b883-38f52a931d31" absoluteBounds="4.1400000000000006, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.8125 : 2.875); (4.8125 : 2.27089680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/CalculIndicatoriModelsDataContext/Companii/Companii_Publicatii" />
-      <nodes>
-        <classShapeMoniker Id="eab27ae1-3c61-401c-adfa-71da648b3f17" />
-        <classShapeMoniker Id="a623f564-e7a5-4a6e-bca4-192683f830b4" />
-      </nodes>
-    </associationConnector>
     <classShape Id="3fcd1ca2-f92b-46d1-a218-bfc074a99c91" absoluteBounds="7.125, 3, 2, 2.1554996744791666">
       <DataClassMoniker Name="/CalculIndicatoriModelsDataContext/Rotatii" />
       <nestedChildShapes>
         <elementListCompartment Id="c1220ca1-f7a8-425b-a965-cbb629a18f4c" absoluteBounds="7.14, 3.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(7.34375 : 3); (7.34375 : 2.20599609375); (6.125 : 2.20599609375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.34375 : 3); (7.34375 : 2.20599609375); (6.125 : 2.20599609375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/CalculIndicatoriModelsDataContext/Rotatii/Rotatii_Publicatii" />
       <nodes>
         <classShapeMoniker Id="3fcd1ca2-f92b-46d1-a218-bfc074a99c91" />
         <classShapeMoniker Id="a623f564-e7a5-4a6e-bca4-192683f830b4" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 3.53449625651042); (7.125 : 3.53449625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/CalculIndicatoriModelsDataContext/Companii/Companii_Rotatii" />
-      <nodes>
-        <classShapeMoniker Id="eab27ae1-3c61-401c-adfa-71da648b3f17" />
-        <classShapeMoniker Id="3fcd1ca2-f92b-46d1-a218-bfc074a99c91" />
-      </nodes>
-    </associationConnector>
-    <classShape Id="5abf5d95-950e-40f5-b3fa-3cee25b16792" absoluteBounds="0.75, 3.25, 2, 1.7708968098958331">
+    <classShape Id="754a5f55-d1fd-4819-9f1c-696a5277080d" absoluteBounds="0.5, 4, 2, 1.7708968098958331">
       <DataClassMoniker Name="/CalculIndicatoriModelsDataContext/User" />
       <nestedChildShapes>
-        <elementListCompartment Id="a5e1cfda-a2a9-4929-9946-93805736c0ea" absoluteBounds="0.76500000000000057, 3.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="4c1445c2-5f6a-4fb5-a913-2e3a952d7678" absoluteBounds="0.51500000000000012, 4.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.75 : 3.25); (1.75 : 1.38544840494792); (4.125 : 1.38544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.15625 : 4); (1.15625 : 1.21875); (4.125 : 1.21875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/CalculIndicatoriModelsDataContext/User/User_Publicatii" />
       <nodes>
-        <classShapeMoniker Id="5abf5d95-950e-40f5-b3fa-3cee25b16792" />
+        <classShapeMoniker Id="754a5f55-d1fd-4819-9f1c-696a5277080d" />
         <classShapeMoniker Id="a623f564-e7a5-4a6e-bca4-192683f830b4" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 4.57619466145833); (7.125 : 4.57619466145833)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.5 : 4.73964680989583); (7.125 : 4.73964680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/CalculIndicatoriModelsDataContext/User/User_Rotatii" />
       <nodes>
-        <classShapeMoniker Id="5abf5d95-950e-40f5-b3fa-3cee25b16792" />
+        <classShapeMoniker Id="754a5f55-d1fd-4819-9f1c-696a5277080d" />
         <classShapeMoniker Id="3fcd1ca2-f92b-46d1-a218-bfc074a99c91" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3.5 : 3.65949625651042); (2.75 : 3.65949625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <classShape Id="db0e13c1-32ad-4d55-aa6b-0ac38393bab6" absoluteBounds="1.875, 2, 2, 1.3862939453125">
+      <DataClassMoniker Name="/CalculIndicatoriModelsDataContext/Companii" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d441251c-a067-4d75-ac3c-80683da59e38" absoluteBounds="1.8900000000000001, 2.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.875 : 2); (2.875 : 1.6406265); (4.125 : 1.6406265)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CalculIndicatoriModelsDataContext/Companii/Companii_Publicatii" />
+      <nodes>
+        <classShapeMoniker Id="db0e13c1-32ad-4d55-aa6b-0ac38393bab6" />
+        <classShapeMoniker Id="a623f564-e7a5-4a6e-bca4-192683f830b4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.875 : 3.19314697265625); (7.125 : 3.19314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CalculIndicatoriModelsDataContext/Companii/Companii_Rotatii" />
+      <nodes>
+        <classShapeMoniker Id="db0e13c1-32ad-4d55-aa6b-0ac38393bab6" />
+        <classShapeMoniker Id="3fcd1ca2-f92b-46d1-a218-bfc074a99c91" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.1875 : 3.3862939453125); (2.1875 : 4)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/CalculIndicatoriModelsDataContext/Companii/Companii_User" />
       <nodes>
-        <classShapeMoniker Id="eab27ae1-3c61-401c-adfa-71da648b3f17" />
-        <classShapeMoniker Id="5abf5d95-950e-40f5-b3fa-3cee25b16792" />
+        <classShapeMoniker Id="db0e13c1-32ad-4d55-aa6b-0ac38393bab6" />
+        <classShapeMoniker Id="754a5f55-d1fd-4819-9f1c-696a5277080d" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

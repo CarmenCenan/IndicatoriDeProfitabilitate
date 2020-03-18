@@ -70,7 +70,7 @@ namespace IndicatoriDeProfitabilitate.Repository
             if (dbUser != null)
             {
                 userModel.IdUser = dbUser.IdUser;
-                userModel.IdCompanie = dbUser.IdCompanie;
+                userModel.IdCompanie = (Guid)dbUser.IdCompanie;
                 userModel.Nume = dbUser.Nume;
                 userModel.Prenume = dbUser.Prenume;
                 userModel.Functie = dbUser.Functie;
