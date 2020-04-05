@@ -8,18 +8,6 @@
       <Column Name="Formula_de_calcul" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.Publicatii" Member="Publicatiis">
-    <Type Name="Publicatii">
-      <Column Name="IdPublicat" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="IdCompanie" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="IdUser" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="IdRotatie" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="DateTimeAdded" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="Rotatii_Publicatii" Member="Rotatii" ThisKey="IdRotatie" OtherKey="IdRotatie" Type="Rotatii" IsForeignKey="true" />
-      <Association Name="User_Publicatii" Member="User" ThisKey="IdUser" OtherKey="IdUser" Type="User" IsForeignKey="true" />
-      <Association Name="Companii_Publicatii" Member="Companii" ThisKey="IdCompanie" OtherKey="IdCompanie" Type="Companii" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Rotatii" Member="Rotatiis">
     <Type Name="Rotatii">
       <Column Name="IdRotatie" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -29,7 +17,6 @@
       <Column Name="Valoare_stoc_mediu" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
       <Column Name="Valoare_indicator" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
       <Column Name="[Public]" Member="Public" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="Rotatii_Publicatii" Member="Publicatiis" ThisKey="IdRotatie" OtherKey="IdRotatie" Type="Publicatii" />
       <Association Name="User_Rotatii" Member="User" ThisKey="IdUser" OtherKey="IdUser" Type="User" IsForeignKey="true" />
       <Association Name="Companii_Rotatii" Member="Companii" ThisKey="IdCompanie" OtherKey="IdCompanie" Type="Companii" IsForeignKey="true" />
     </Type>
@@ -41,7 +28,6 @@
       <Column Name="Nume" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Prenume" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Functie" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="User_Publicatii" Member="Publicatiis" ThisKey="IdUser" OtherKey="IdUser" Type="Publicatii" />
       <Association Name="User_Rotatii" Member="Rotatiis" ThisKey="IdUser" OtherKey="IdUser" Type="Rotatii" />
       <Association Name="Companii_User" Member="Companii" ThisKey="IdCompanie" OtherKey="IdCompanie" Type="Companii" IsForeignKey="true" />
     </Type>
@@ -51,7 +37,6 @@
       <Column Name="IdCompanie" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Nume_Companie" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="CUI" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Association Name="Companii_Publicatii" Member="Publicatiis" ThisKey="IdCompanie" OtherKey="IdCompanie" Type="Publicatii" />
       <Association Name="Companii_Rotatii" Member="Rotatiis" ThisKey="IdCompanie" OtherKey="IdCompanie" Type="Rotatii" />
       <Association Name="Companii_User" Member="Users" ThisKey="IdCompanie" OtherKey="IdCompanie" Type="User" />
     </Type>

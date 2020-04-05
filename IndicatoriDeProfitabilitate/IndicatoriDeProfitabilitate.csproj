@@ -186,7 +186,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IndicatorController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\PublicatController.cs" />
     <Compile Include="Controllers\RotatieController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -202,17 +201,14 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IndicatorModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\PublicatModel.cs" />
     <Compile Include="Models\RotatieModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CompanieRepository.cs" />
     <Compile Include="Repository\IndicatorRepository.cs" />
-    <Compile Include="Repository\PublicatRepository.cs" />
     <Compile Include="Repository\RotatieRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\RotatiePublicatiiViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\calculindicatori.mdf" />
@@ -286,8 +282,6 @@
     <Content Include="Views\Companie\Index.cshtml" />
     <Content Include="Views\Indicator\CreateIndicator.cshtml" />
     <Content Include="Views\Indicator\Index.cshtml" />
-    <Content Include="Views\Publicat\CreatePublicat.cshtml" />
-    <Content Include="Views\Publicat\Index.cshtml" />
     <Content Include="Views\Rotatie\CreateRotatie.cshtml" />
     <Content Include="Views\Rotatie\Index.cshtml" />
     <Content Include="Views\User\CreateUser.cshtml" />
@@ -323,6 +317,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Image\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

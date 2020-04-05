@@ -8,7 +8,7 @@
 <h2>Calculeaza rotatie</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Calculate", "Calculate", FormMethod.Post)) 
 {
     @Html.AntiForgeryToken()
     
@@ -62,16 +62,25 @@
         <div class="form-group">
 
             <div class="col-md-offset-2 col-md-10">
-                <form action="/action_control-label col-md-2" input type="decimal" id="Valoare_indicator"  calculate = Cost_marfa_vanduta / Valoare_stoc_mediu/>
-           
+
+                <form action="/action_control-label col-md-2" input type="decimal" id="Valoare_indicator" />
+
                 <input type="submit" value="Calculeaza rotatie" class="btn btn-default col-md-2" />
+
             </div>
-          
+
+
             @Html.LabelFor(model => model.Valoare_indicator, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Valoare_indicator, new { htmlAttributes = new { @class = "form-control" } })
-            @*@Html.ValidationMessageFor(model => model.Valoare_indicator, "", new { @class = "text-danger" })*@
-        </div>
+            @*@using (Html.BeginForm("Calculate", "Calculate", FormMethod.Post))
+            {
+                @Html.DisplayFor(x => x.Valoare_indicator)
+
+            }*@
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Valoare_indicator, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.ValidationMessageFor(model => model.Valoare_indicator, "", new { @class = "text-danger" })*@
+
+            </div>
         </div>
 
         <div class="form-group">
@@ -84,12 +93,7 @@
             </div>
         </div>
 
-        @*<div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Calculeaza" class="btn btn-default" />
-               
-            </div>
-        </div>*@
+       
     </div>
 }
 

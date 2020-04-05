@@ -8,7 +8,7 @@
 <h2>Lista users</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Adauga user", "Create")
 </p>
 <table class="table">
     <tr>
@@ -48,18 +48,9 @@
             @Html.DisplayFor(modelItem => item.Functie)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.IdUser }) |
-            @Html.ActionLink("Details", "Details", new { id = item.IdUser }) |
-           
-            @{
-                if ((User.IsInRole("Admin") && item.Nume.Contains(User.Identity.Name)))
-
-                {
-                 @Html.ActionLink("Delete", "Delete", new { id = item.IdUser })
-                }
-            }
-           
-
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdUser }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdUser }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.IdUser })
         </td>
     </tr>
 }

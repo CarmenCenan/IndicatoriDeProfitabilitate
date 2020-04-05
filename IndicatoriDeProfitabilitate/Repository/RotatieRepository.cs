@@ -34,16 +34,6 @@ namespace IndicatoriDeProfitabilitate.Repository
             return MapDbObjectToModel(dbContext.Rotatiis.FirstOrDefault(x => x.IdRotatie == Id));
 
         }
-        //private void ButtonValoare_Indicator (object sender, RouteConfig routeConfig)
-        //{
-        //    List<RotatieModel> valoare_indicatorList = new List<RotatieModel>();
-           
-        //    foreach (Models.DBObjects.Rotatii dbRotatie in dbContext.Rotatiis)
-        //    {
-        //        valoare_indicatorList.Add(MapDbObjectToModel(dbRotatie));
-        //    }
-           
-        //}
 
         public void InsertRotatie(RotatieModel rotatieModel)
         {

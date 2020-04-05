@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IndicatoriDeProfitabilitate.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +10,14 @@ namespace IndicatoriDeProfitabilitate.Controllers
     public class RotatieController : Controller
     {
         private Repository.RotatieRepository rotatieRepository = new Repository.RotatieRepository();
+
+        [HttpPost]
+        [Authorize(Roles = "User , Admin")]
+        public ActionResult Calculate(RotatieModel model)
+        {
+            model.Valoare_indicator = model.Valoare_stoc_mediu / model.Cost_marfa_vanduta;
+            return View(model);
+        }
         // GET: Rotatie
         [AllowAnonymous]
         public ActionResult Index()
@@ -42,6 +51,7 @@ namespace IndicatoriDeProfitabilitate.Controllers
                 Models.RotatieModel rotatieModel = new Models.RotatieModel();
                 UpdateModel(rotatieModel);
                 rotatieRepository.InsertRotatie(rotatieModel);
+
 
                 return RedirectToAction("Index");
             }
@@ -102,5 +112,6 @@ namespace IndicatoriDeProfitabilitate.Controllers
                 return View("DeleteRotatie");
             }
         }
+        
     }
 }
