@@ -8,15 +8,15 @@
 <h2>Calculeaza rotatie</h2>
 
 
-@using (Html.BeginForm("Calculate", "Calculate", FormMethod.Post)) 
+@using (Html.BeginForm("Calculate", "Calculate", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>@*RotatieModel*@</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @*<div class="form-group">
+
+<div class="form-horizontal">
+    <h4>@*RotatieModel*@</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @*<div class="form-group">
             @Html.LabelFor(model => model.IdRotatie, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.IdRotatie, new { htmlAttributes = new { @class = "form-control" } })
@@ -24,7 +24,7 @@
             </div>
         </div>*@
 
-        @*<div class="form-group">
+    @*<div class="form-group">
             @Html.LabelFor(model => model.IdCompanie, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.IdCompanie, new { htmlAttributes = new { @class = "form-control" } })
@@ -32,7 +32,7 @@
             </div>
         </div>*@
 
-        @*<div class="form-group">
+    @*<div class="form-group">
             @Html.LabelFor(model => model.IdUser, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.IdUser, new { htmlAttributes = new { @class = "form-control" } })
@@ -40,63 +40,57 @@
             </div>
         </div>*@
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cost_marfa_vanduta, htmlAttributes: new { @class = "control-label col-md-2" })
-            <label for=" Cost_marfa_vanduta"/>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cost_marfa_vanduta, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Cost_marfa_vanduta, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Cost_marfa_vanduta, htmlAttributes: new { @class = "control-label col-md-2" })
+        <label for=" Cost_marfa_vanduta" />
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Cost_marfa_vanduta, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Cost_marfa_vanduta, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            
-            @Html.LabelFor(model => model.Valoare_stoc_mediu, htmlAttributes: new { @class = "control-label col-md-2" })
-            <label for=" Valoare_stoc_mediu" />
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Valoare_stoc_mediu, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Valoare_stoc_mediu, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+
+        @Html.LabelFor(model => model.Valoare_stoc_mediu, htmlAttributes: new { @class = "control-label col-md-2" })
+        <label for=" Valoare_stoc_mediu" />
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Valoare_stoc_mediu, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Valoare_stoc_mediu, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
+    <div class="form-group">
+      
+        <div class="col-md-offset-2 col-md-10">
 
-            <div class="col-md-offset-2 col-md-10">
+            <form action="/action_control-label col-md-2" input type="decimal" id="Valoare_indicator" />
 
-                <form action="/action_control-label col-md-2" input type="decimal" id="Valoare_indicator" />
-
-                <input type="submit" value="Calculeaza rotatie" class="btn btn-default col-md-2" />
-
-            </div>
-
-
-            @Html.LabelFor(model => model.Valoare_indicator, htmlAttributes: new { @class = "control-label col-md-2" })
-            @*@using (Html.BeginForm("Calculate", "Calculate", FormMethod.Post))
-            {
-                @Html.DisplayFor(x => x.Valoare_indicator)
-
-            }*@
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Valoare_indicator, new { htmlAttributes = new { @class = "form-control" } })
-                @*@Html.ValidationMessageFor(model => model.Valoare_indicator, "", new { @class = "text-danger" })*@
-
-            </div>
+            <input type="submit" value="Calculeaza rotatie" class="btn btn-default col-md-2" />
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Public, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Public)
-                    @Html.ValidationMessageFor(model => model.Public, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
+        
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Valoare_indicator, htmlAttributes: new { @class = "control-label col-md-2" })
        
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Valoare_indicator, new { htmlAttributes = new { @class = "form-control" } })
+            @*@Html.ValidationMessageFor(model => model.Valoare_indicator, "", new { @class = "text-danger" })*@
+
+        </div>
+    </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Public, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.Public)
+                @Html.ValidationMessageFor(model => model.Public, "", new { @class = "text-danger" })
+            </div>
+        </div>
     </div>
 }
-
+<br/><br/>
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>

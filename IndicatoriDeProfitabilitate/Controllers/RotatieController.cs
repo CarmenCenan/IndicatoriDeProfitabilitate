@@ -10,21 +10,15 @@ namespace IndicatoriDeProfitabilitate.Controllers
     public class RotatieController : Controller
     {
         private Repository.RotatieRepository rotatieRepository = new Repository.RotatieRepository();
-
-        [HttpPost]
-        [Authorize(Roles = "User , Admin")]
-        public ActionResult Calculate(RotatieModel model)
-        {
-            model.Valoare_indicator = model.Valoare_stoc_mediu / model.Cost_marfa_vanduta;
-            return View(model);
-        }
         // GET: Rotatie
         [AllowAnonymous]
         public ActionResult Index()
         {
             List<Models.RotatieModel> rotatii = rotatieRepository.GetAllRotatii();
+           
             return View("Index", rotatii);
         }
+        
 
         // GET: Rotatie/Details/5
         [AllowAnonymous]
@@ -46,21 +40,21 @@ namespace IndicatoriDeProfitabilitate.Controllers
         [Authorize(Roles = "User, Admin")]
         public ActionResult Create(FormCollection collection)
         {
-            try
-            {
+            //try
+            //{
                 Models.RotatieModel rotatieModel = new Models.RotatieModel();
                 UpdateModel(rotatieModel);
                 rotatieRepository.InsertRotatie(rotatieModel);
 
 
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View("CreateRotatie");
-            }
+            //}
+            //catch
+            //{
+            //    return View("CreateRotatie");
+            //}
         }
-
+    
         // GET: Rotatie/Edit/5
         [Authorize(Roles = "User, Admin")]
         public ActionResult Edit(Guid id)
@@ -75,17 +69,17 @@ namespace IndicatoriDeProfitabilitate.Controllers
         [Authorize(Roles = "User, Admin")]
         public ActionResult Edit(Guid id, FormCollection collection)
         {
-            try
-            {
+            //try
+            //{
                 Models.RotatieModel rotatieModel = new Models.RotatieModel();
                 UpdateModel(rotatieModel);
                 rotatieRepository.UpdateRotatie(rotatieModel);
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View("EditRotatie");
-            }
+            //}
+            //catch
+            //{
+            //    return View("EditRotatie");
+            //}
         }
 
         // GET: Rotatie/Delete/5
@@ -101,16 +95,16 @@ namespace IndicatoriDeProfitabilitate.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(Guid id, FormCollection collection)
         {
-            try
-            {
+            //try
+            //{
                 // TODO: Add delete logic here
                 rotatieRepository.DeleteRotatie(id);
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View("DeleteRotatie");
-            }
+            //}
+            //catch
+            //{
+            //    return View("DeleteRotatie");
+            //}
         }
         
     }

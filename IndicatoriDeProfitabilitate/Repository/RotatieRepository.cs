@@ -79,7 +79,7 @@ namespace IndicatoriDeProfitabilitate.Repository
                 rotatieModel.IdUser = dbRotatie.IdUser;
                 rotatieModel.Cost_marfa_vanduta = dbRotatie.Cost_marfa_vanduta;
                 rotatieModel.Valoare_stoc_mediu = dbRotatie.Valoare_stoc_mediu;
-                rotatieModel.Valoare_indicator = dbRotatie.Valoare_indicator;
+                rotatieModel.Valoare_indicator = dbRotatie.Valoare_stoc_mediu/dbRotatie.Cost_marfa_vanduta;
                 rotatieModel.Public = dbRotatie.Public;
 
 
@@ -105,27 +105,6 @@ namespace IndicatoriDeProfitabilitate.Repository
             }
             return null;
         }
-        //public ViewModels.RotatiePublicatiiViewModel GetRotatiePublicatii(Guid rotatieId)
-        //{
-        //    ViewModels.RotatiePublicatiiViewModel rotatiePublicatiiViewModel = new ViewModels.RotatiePublicatiiViewModel();
-        //    Rotatie rotatie = dbContext.Rotatiis.FirstOrDefault(x => x.IdRotatie == rotatieId);
-        //    if (rotatie != null)
-        //    {
-        //        rotatiePublicatiiViewModel.Nume_Companie = rotatie.Nume_Companie;
-        //        rotatiePublicatiiViewModel.Valoare_Indicator = rotatie.Valoare_Indicator;
-               
-
-        //        IQueryable<Publicatii> rotatiePublicatii = dbContext.Publicatiis.Where(x => x.IdRotatie == rotatieId);
-        //        foreach (Publicatii dbPublicatii in rotatiePublicatii)
-        //        {
-        //            Publicatii publicatModel = new Publicatii();
-        //            publicatModel.Valoare_Indicator = dbPublicatii.Valoare_Indicator;
-        //            codeSnippetModel.ContentCode = dbCodeSnippet.ContentCode;
-        //            codeSnippetModel.Revision = dbCodeSnippet.Revision;
-        //            memberCodeSnippetsViewModel.CodeSnippets.Add(codeSnippetModel);
-        //        }
-        //    }
-        //    return memberCodeSnippetsViewModel;
-        //}
+       
     }
 }

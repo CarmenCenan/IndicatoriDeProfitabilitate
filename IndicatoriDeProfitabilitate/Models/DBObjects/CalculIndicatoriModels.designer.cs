@@ -33,15 +33,15 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
     partial void InsertIndicatori(Indicatori instance);
     partial void UpdateIndicatori(Indicatori instance);
     partial void DeleteIndicatori(Indicatori instance);
-    partial void InsertRotatii(Rotatii instance);
-    partial void UpdateRotatii(Rotatii instance);
-    partial void DeleteRotatii(Rotatii instance);
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
     partial void InsertCompanii(Companii instance);
     partial void UpdateCompanii(Companii instance);
     partial void DeleteCompanii(Companii instance);
+    partial void InsertRotatii(Rotatii instance);
+    partial void UpdateRotatii(Rotatii instance);
+    partial void DeleteRotatii(Rotatii instance);
     #endregion
 		
 		public CalculIndicatoriModelsDataContext() : 
@@ -82,14 +82,6 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 			}
 		}
 		
-		public System.Data.Linq.Table<Rotatii> Rotatiis
-		{
-			get
-			{
-				return this.GetTable<Rotatii>();
-			}
-		}
-		
 		public System.Data.Linq.Table<User> Users
 		{
 			get
@@ -103,6 +95,14 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 			get
 			{
 				return this.GetTable<Companii>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Rotatii> Rotatiis
+		{
+			get
+			{
+				return this.GetTable<Rotatii>();
 			}
 		}
 	}
@@ -216,294 +216,6 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 					this._Formula_de_calcul = value;
 					this.SendPropertyChanged("Formula_de_calcul");
 					this.OnFormula_de_calculChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Rotatii")]
-	public partial class Rotatii : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _IdRotatie;
-		
-		private System.Guid _IdCompanie;
-		
-		private System.Guid _IdUser;
-		
-		private decimal _Cost_marfa_vanduta;
-		
-		private decimal _Valoare_stoc_mediu;
-		
-		private decimal _Valoare_indicator;
-		
-		private bool _Public;
-		
-		private EntityRef<User> _User;
-		
-		private EntityRef<Companii> _Companii;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdRotatieChanging(System.Guid value);
-    partial void OnIdRotatieChanged();
-    partial void OnIdCompanieChanging(System.Guid value);
-    partial void OnIdCompanieChanged();
-    partial void OnIdUserChanging(System.Guid value);
-    partial void OnIdUserChanged();
-    partial void OnCost_marfa_vandutaChanging(decimal value);
-    partial void OnCost_marfa_vandutaChanged();
-    partial void OnValoare_stoc_mediuChanging(decimal value);
-    partial void OnValoare_stoc_mediuChanged();
-    partial void OnValoare_indicatorChanging(decimal value);
-    partial void OnValoare_indicatorChanged();
-    partial void OnPublicChanging(bool value);
-    partial void OnPublicChanged();
-    #endregion
-		
-		public Rotatii()
-		{
-			this._User = default(EntityRef<User>);
-			this._Companii = default(EntityRef<Companii>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdRotatie", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid IdRotatie
-		{
-			get
-			{
-				return this._IdRotatie;
-			}
-			set
-			{
-				if ((this._IdRotatie != value))
-				{
-					this.OnIdRotatieChanging(value);
-					this.SendPropertyChanging();
-					this._IdRotatie = value;
-					this.SendPropertyChanged("IdRotatie");
-					this.OnIdRotatieChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCompanie", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid IdCompanie
-		{
-			get
-			{
-				return this._IdCompanie;
-			}
-			set
-			{
-				if ((this._IdCompanie != value))
-				{
-					if (this._Companii.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdCompanieChanging(value);
-					this.SendPropertyChanging();
-					this._IdCompanie = value;
-					this.SendPropertyChanged("IdCompanie");
-					this.OnIdCompanieChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUser", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid IdUser
-		{
-			get
-			{
-				return this._IdUser;
-			}
-			set
-			{
-				if ((this._IdUser != value))
-				{
-					if (this._User.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdUserChanging(value);
-					this.SendPropertyChanging();
-					this._IdUser = value;
-					this.SendPropertyChanged("IdUser");
-					this.OnIdUserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost_marfa_vanduta", DbType="Decimal(18,0) NOT NULL")]
-		public decimal Cost_marfa_vanduta
-		{
-			get
-			{
-				return this._Cost_marfa_vanduta;
-			}
-			set
-			{
-				if ((this._Cost_marfa_vanduta != value))
-				{
-					this.OnCost_marfa_vandutaChanging(value);
-					this.SendPropertyChanging();
-					this._Cost_marfa_vanduta = value;
-					this.SendPropertyChanged("Cost_marfa_vanduta");
-					this.OnCost_marfa_vandutaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Valoare_stoc_mediu", DbType="Decimal(18,0) NOT NULL")]
-		public decimal Valoare_stoc_mediu
-		{
-			get
-			{
-				return this._Valoare_stoc_mediu;
-			}
-			set
-			{
-				if ((this._Valoare_stoc_mediu != value))
-				{
-					this.OnValoare_stoc_mediuChanging(value);
-					this.SendPropertyChanging();
-					this._Valoare_stoc_mediu = value;
-					this.SendPropertyChanged("Valoare_stoc_mediu");
-					this.OnValoare_stoc_mediuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Valoare_indicator", DbType="Decimal(18,0) NOT NULL")]
-		public decimal Valoare_indicator
-		{
-			get
-			{
-				return this._Valoare_indicator;
-			}
-			set
-			{
-				if ((this._Valoare_indicator != value))
-				{
-					this.OnValoare_indicatorChanging(value);
-					this.SendPropertyChanging();
-					this._Valoare_indicator = value;
-					this.SendPropertyChanged("Valoare_indicator");
-					this.OnValoare_indicatorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Public]", Storage="_Public", DbType="Bit NOT NULL")]
-		public bool Public
-		{
-			get
-			{
-				return this._Public;
-			}
-			set
-			{
-				if ((this._Public != value))
-				{
-					this.OnPublicChanging(value);
-					this.SendPropertyChanging();
-					this._Public = value;
-					this.SendPropertyChanged("Public");
-					this.OnPublicChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Rotatii", Storage="_User", ThisKey="IdUser", OtherKey="IdUser", IsForeignKey=true)]
-		public User User
-		{
-			get
-			{
-				return this._User.Entity;
-			}
-			set
-			{
-				User previousValue = this._User.Entity;
-				if (((previousValue != value) 
-							|| (this._User.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._User.Entity = null;
-						previousValue.Rotatiis.Remove(this);
-					}
-					this._User.Entity = value;
-					if ((value != null))
-					{
-						value.Rotatiis.Add(this);
-						this._IdUser = value.IdUser;
-					}
-					else
-					{
-						this._IdUser = default(System.Guid);
-					}
-					this.SendPropertyChanged("User");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Companii_Rotatii", Storage="_Companii", ThisKey="IdCompanie", OtherKey="IdCompanie", IsForeignKey=true)]
-		public Companii Companii
-		{
-			get
-			{
-				return this._Companii.Entity;
-			}
-			set
-			{
-				Companii previousValue = this._Companii.Entity;
-				if (((previousValue != value) 
-							|| (this._Companii.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Companii.Entity = null;
-						previousValue.Rotatiis.Remove(this);
-					}
-					this._Companii.Entity = value;
-					if ((value != null))
-					{
-						value.Rotatiis.Add(this);
-						this._IdCompanie = value.IdCompanie;
-					}
-					else
-					{
-						this._IdCompanie = default(System.Guid);
-					}
-					this.SendPropertyChanged("Companii");
 				}
 			}
 		}
@@ -768,9 +480,9 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 		
 		private string _CUI;
 		
-		private EntitySet<Rotatii> _Rotatiis;
-		
 		private EntitySet<User> _Users;
+		
+		private EntitySet<Rotatii> _Rotatiis;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -786,8 +498,8 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 		
 		public Companii()
 		{
-			this._Rotatiis = new EntitySet<Rotatii>(new Action<Rotatii>(this.attach_Rotatiis), new Action<Rotatii>(this.detach_Rotatiis));
 			this._Users = new EntitySet<User>(new Action<User>(this.attach_Users), new Action<User>(this.detach_Users));
+			this._Rotatiis = new EntitySet<Rotatii>(new Action<Rotatii>(this.attach_Rotatiis), new Action<Rotatii>(this.detach_Rotatiis));
 			OnCreated();
 		}
 		
@@ -851,19 +563,6 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Companii_Rotatii", Storage="_Rotatiis", ThisKey="IdCompanie", OtherKey="IdCompanie")]
-		public EntitySet<Rotatii> Rotatiis
-		{
-			get
-			{
-				return this._Rotatiis;
-			}
-			set
-			{
-				this._Rotatiis.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Companii_User", Storage="_Users", ThisKey="IdCompanie", OtherKey="IdCompanie")]
 		public EntitySet<User> Users
 		{
@@ -874,6 +573,19 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 			set
 			{
 				this._Users.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Companii_Rotatii", Storage="_Rotatiis", ThisKey="IdCompanie", OtherKey="IdCompanie")]
+		public EntitySet<Rotatii> Rotatiis
+		{
+			get
+			{
+				return this._Rotatiis;
+			}
+			set
+			{
+				this._Rotatiis.Assign(value);
 			}
 		}
 		
@@ -897,6 +609,18 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 			}
 		}
 		
+		private void attach_Users(User entity)
+		{
+			this.SendPropertyChanging();
+			entity.Companii = this;
+		}
+		
+		private void detach_Users(User entity)
+		{
+			this.SendPropertyChanging();
+			entity.Companii = null;
+		}
+		
 		private void attach_Rotatiis(Rotatii entity)
 		{
 			this.SendPropertyChanging();
@@ -908,17 +632,293 @@ namespace IndicatoriDeProfitabilitate.Models.DBObjects
 			this.SendPropertyChanging();
 			entity.Companii = null;
 		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Rotatii")]
+	public partial class Rotatii : INotifyPropertyChanging, INotifyPropertyChanged
+	{
 		
-		private void attach_Users(User entity)
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _IdRotatie;
+		
+		private System.Guid _IdCompanie;
+		
+		private System.Guid _IdUser;
+		
+		private decimal _Cost_marfa_vanduta;
+		
+		private decimal _Valoare_stoc_mediu;
+		
+		private decimal _Valoare_indicator;
+		
+		private bool _Public;
+		
+		private EntityRef<User> _User;
+		
+		private EntityRef<Companii> _Companii;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdRotatieChanging(System.Guid value);
+    partial void OnIdRotatieChanged();
+    partial void OnIdCompanieChanging(System.Guid value);
+    partial void OnIdCompanieChanged();
+    partial void OnIdUserChanging(System.Guid value);
+    partial void OnIdUserChanged();
+    partial void OnCost_marfa_vandutaChanging(decimal value);
+    partial void OnCost_marfa_vandutaChanged();
+    partial void OnValoare_stoc_mediuChanging(decimal value);
+    partial void OnValoare_stoc_mediuChanged();
+    partial void OnValoare_indicatorChanging(decimal value);
+    partial void OnValoare_indicatorChanged();
+    partial void OnPublicChanging(bool value);
+    partial void OnPublicChanged();
+    #endregion
+		
+		public Rotatii()
 		{
-			this.SendPropertyChanging();
-			entity.Companii = this;
+			this._User = default(EntityRef<User>);
+			this._Companii = default(EntityRef<Companii>);
+			OnCreated();
 		}
 		
-		private void detach_Users(User entity)
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdRotatie", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid IdRotatie
 		{
-			this.SendPropertyChanging();
-			entity.Companii = null;
+			get
+			{
+				return this._IdRotatie;
+			}
+			set
+			{
+				if ((this._IdRotatie != value))
+				{
+					this.OnIdRotatieChanging(value);
+					this.SendPropertyChanging();
+					this._IdRotatie = value;
+					this.SendPropertyChanged("IdRotatie");
+					this.OnIdRotatieChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCompanie", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid IdCompanie
+		{
+			get
+			{
+				return this._IdCompanie;
+			}
+			set
+			{
+				if ((this._IdCompanie != value))
+				{
+					if (this._Companii.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdCompanieChanging(value);
+					this.SendPropertyChanging();
+					this._IdCompanie = value;
+					this.SendPropertyChanged("IdCompanie");
+					this.OnIdCompanieChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUser", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid IdUser
+		{
+			get
+			{
+				return this._IdUser;
+			}
+			set
+			{
+				if ((this._IdUser != value))
+				{
+					if (this._User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdUserChanging(value);
+					this.SendPropertyChanging();
+					this._IdUser = value;
+					this.SendPropertyChanged("IdUser");
+					this.OnIdUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost_marfa_vanduta", DbType="Decimal(18,2) NOT NULL")]
+		public decimal Cost_marfa_vanduta
+		{
+			get
+			{
+				return this._Cost_marfa_vanduta;
+			}
+			set
+			{
+				if ((this._Cost_marfa_vanduta != value))
+				{
+					this.OnCost_marfa_vandutaChanging(value);
+					this.SendPropertyChanging();
+					this._Cost_marfa_vanduta = value;
+					this.SendPropertyChanged("Cost_marfa_vanduta");
+					this.OnCost_marfa_vandutaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Valoare_stoc_mediu", DbType="Decimal(18,2) NOT NULL")]
+		public decimal Valoare_stoc_mediu
+		{
+			get
+			{
+				return this._Valoare_stoc_mediu;
+			}
+			set
+			{
+				if ((this._Valoare_stoc_mediu != value))
+				{
+					this.OnValoare_stoc_mediuChanging(value);
+					this.SendPropertyChanging();
+					this._Valoare_stoc_mediu = value;
+					this.SendPropertyChanged("Valoare_stoc_mediu");
+					this.OnValoare_stoc_mediuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Valoare_indicator", DbType="Decimal(18,2) NOT NULL")]
+		public decimal Valoare_indicator
+		{
+			get
+			{
+				return this._Valoare_indicator;
+			}
+			set
+			{
+				if ((this._Valoare_indicator != value))
+				{
+					this.OnValoare_indicatorChanging(value);
+					this.SendPropertyChanging();
+					this._Valoare_indicator = value;
+					this.SendPropertyChanged("Valoare_indicator");
+					this.OnValoare_indicatorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Public]", Storage="_Public", DbType="Bit NOT NULL")]
+		public bool Public
+		{
+			get
+			{
+				return this._Public;
+			}
+			set
+			{
+				if ((this._Public != value))
+				{
+					this.OnPublicChanging(value);
+					this.SendPropertyChanging();
+					this._Public = value;
+					this.SendPropertyChanged("Public");
+					this.OnPublicChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Rotatii", Storage="_User", ThisKey="IdUser", OtherKey="IdUser", IsForeignKey=true)]
+		public User User
+		{
+			get
+			{
+				return this._User.Entity;
+			}
+			set
+			{
+				User previousValue = this._User.Entity;
+				if (((previousValue != value) 
+							|| (this._User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._User.Entity = null;
+						previousValue.Rotatiis.Remove(this);
+					}
+					this._User.Entity = value;
+					if ((value != null))
+					{
+						value.Rotatiis.Add(this);
+						this._IdUser = value.IdUser;
+					}
+					else
+					{
+						this._IdUser = default(System.Guid);
+					}
+					this.SendPropertyChanged("User");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Companii_Rotatii", Storage="_Companii", ThisKey="IdCompanie", OtherKey="IdCompanie", IsForeignKey=true)]
+		public Companii Companii
+		{
+			get
+			{
+				return this._Companii.Entity;
+			}
+			set
+			{
+				Companii previousValue = this._Companii.Entity;
+				if (((previousValue != value) 
+							|| (this._Companii.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Companii.Entity = null;
+						previousValue.Rotatiis.Remove(this);
+					}
+					this._Companii.Entity = value;
+					if ((value != null))
+					{
+						value.Rotatiis.Add(this);
+						this._IdCompanie = value.IdCompanie;
+					}
+					else
+					{
+						this._IdCompanie = default(System.Guid);
+					}
+					this.SendPropertyChanged("Companii");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }
