@@ -38,6 +38,7 @@ namespace IndicatoriDeProfitabilitate.Repository
         public void InsertRotatie(RotatieModel rotatieModel)
         {
             rotatieModel.IdRotatie = Guid.NewGuid();
+            rotatieModel.IdCompanie = Guid.NewGuid(); // to revise
             dbContext.Rotatiis.InsertOnSubmit(MapModelToDbObject(rotatieModel));
             dbContext.SubmitChanges();
         }
@@ -79,7 +80,7 @@ namespace IndicatoriDeProfitabilitate.Repository
                 rotatieModel.IdUser = dbRotatie.IdUser;
                 rotatieModel.Cost_marfa_vanduta = dbRotatie.Cost_marfa_vanduta;
                 rotatieModel.Valoare_stoc_mediu = dbRotatie.Valoare_stoc_mediu;
-                rotatieModel.Valoare_indicator = dbRotatie.Valoare_stoc_mediu/dbRotatie.Cost_marfa_vanduta;
+                rotatieModel.Valoare_indicator = dbRotatie.Valoare_indicator;
                 rotatieModel.Public = dbRotatie.Public;
 
 

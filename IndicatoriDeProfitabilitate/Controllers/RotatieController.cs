@@ -18,10 +18,18 @@ namespace IndicatoriDeProfitabilitate.Controllers
            
             return View("Index", rotatii);
         }
-        
-
+        [HttpPost]
+        public ActionResult Index(RotatieModel model, string command)
+        {
+            if (command == "div")
+            {
+                model.Valoare_indicator = model.Valoare_stoc_mediu / model.Cost_marfa_vanduta;
+            }
+            return View(model.Valoare_indicator);
+        }
         // GET: Rotatie/Details/5
         [AllowAnonymous]
+
         public ActionResult Details(Guid id)
         {
             Models.RotatieModel rotatieModel = rotatieRepository.GetRotatieById(id);
@@ -31,28 +39,26 @@ namespace IndicatoriDeProfitabilitate.Controllers
         // GET: Rotatie/Create
         [Authorize (Roles = "User, Admin")]
         public ActionResult Create()
-        {
+        { 
             return View("CreateRotatie");
         }
 
         // POST: Rotatie/Create
         [HttpPost]
         [Authorize(Roles = "User, Admin")]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(RotatieModel model)// collection/*RotatieModel model, string command*/)
         {
-            //try
-            //{
-                Models.RotatieModel rotatieModel = new Models.RotatieModel();
-                UpdateModel(rotatieModel);
-                rotatieRepository.InsertRotatie(rotatieModel);
+            try
+            {
 
-
+                rotatieRepository.InsertRotatie(model);
+                
                 return RedirectToAction("Index");
-            //}
-            //catch
-            //{
-            //    return View("CreateRotatie");
-            //}
+            }
+             catch (Exception)
+            {
+                return View("CreateRotatie");
+            }
         }
     
         // GET: Rotatie/Edit/5

@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <h2>Rotatii</h2>
 
 <p>
@@ -13,14 +14,14 @@
 <table class="table">
     <tr>
         @*<th>
-            @Html.DisplayNameFor(model => model.IdRotatie)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdCompanie)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdUser)
-        </th>*@
+                @Html.DisplayNameFor(model => model.IdRotatie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCompanie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdUser)
+            </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Cost_marfa_vanduta)
         </th>
@@ -36,35 +37,37 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.IdRotatie)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdCompanie)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdUser)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.Cost_marfa_vanduta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valoare_stoc_mediu)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valoare_indicator)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Public)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.IdRotatie }) |
-            @Html.ActionLink("Details", "Details", new {  id=item.IdRotatie }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdRotatie })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.IdRotatie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdCompanie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdUser)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost_marfa_vanduta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valoare_stoc_mediu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valoare_indicator)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Public)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IdRotatie }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IdRotatie }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IdRotatie })
+            </td>
+        </tr>
+    }
 
 </table>
+

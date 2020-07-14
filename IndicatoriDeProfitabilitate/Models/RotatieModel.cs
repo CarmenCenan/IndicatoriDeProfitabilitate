@@ -12,7 +12,7 @@ namespace IndicatoriDeProfitabilitate.Models
         public Guid IdUser { get; set; }
         public decimal Cost_marfa_vanduta { get; set; }
         public decimal Valoare_stoc_mediu { get; set; }
-        public decimal Valoare_indicator { get; set; }
+        public decimal Valoare_indicator { get;  set; }
         public bool Public { get; set; }
     }
 }
