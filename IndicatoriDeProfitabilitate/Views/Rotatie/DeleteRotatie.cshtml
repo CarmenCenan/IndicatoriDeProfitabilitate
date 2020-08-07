@@ -4,78 +4,78 @@
     ViewBag.Title = "DeleteRotatie";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+ <h2>Șterge rotație</h2>
 
-<h2>DeleteRotatie</h2>
+ <div>
+     @*<h4>RotatieModel</h4>*@
+     <hr />
+     <dl class="dl-horizontal">
+         @*<dt>
+                @Html.DisplayNameFor(model => model.IdRotatie)
+            </dt>
 
-<h3>Esti sigur/a ca vrei sa stergi?</h3>
-<div>
-    <h4>RotatieModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        @*<dt>
-            @Html.DisplayNameFor(model => model.IdRotatie)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IdRotatie)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.IdRotatie)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IdCompanie)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IdCompanie)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IdCompanie)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.IdCompanie)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IdUser)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IdUser)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IdUser)
+            </dd>*@
 
-        <dd>
-            @Html.DisplayFor(model => model.IdUser)
-        </dd>*@
+         <dt>
+             @Html.DisplayNameFor(model => model.Cost_marfa_vanduta)
+         </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cost_marfa_vanduta)
-        </dt>
+         <dd>
+             @Html.DisplayFor(model => model.Cost_marfa_vanduta)
+         </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cost_marfa_vanduta)
-        </dd>
+         <dt>
+             @Html.DisplayNameFor(model => model.Valoare_stoc_mediu)
+         </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Valoare_stoc_mediu)
-        </dt>
+         <dd>
+             @Html.DisplayFor(model => model.Valoare_stoc_mediu)
+         </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Valoare_stoc_mediu)
-        </dd>
+         <dt>
+             @Html.DisplayNameFor(model => model.Valoare_indicator)
+         </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Valoare_indicator)
-        </dt>
+         <dd>
+             @Html.DisplayFor(model => model.Valoare_indicator)
+         </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Valoare_indicator)
-        </dd>
+         @*<dt>
+                @Html.DisplayNameFor(model => model.Public)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Public)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Public)
+            </dd>*@
 
-        <dd>
-            @Html.DisplayFor(model => model.Public)
-        </dd>
+     </dl>
+     <h3>Sigur vrei să ştergi?</h3>
 
-    </dl>
+     @using (Html.BeginForm())
+     {
+         @Html.AntiForgeryToken()
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
-</div>
+         <div class="form-actions no-color">
+             <input type="submit" value="Delete" class="btn btn-default" /> |
+             @Html.ActionLink("Back to List", "Index")
+         </div>
+     }
+ </div>

@@ -38,14 +38,15 @@
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.IdCompanie }) |
         @Html.ActionLink("Details", "Details", new { id = item.IdCompanie }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.IdCompanie })
 
-        @{
+        @*@{
 
             if (User.IsInRole("Admin") && item.Nume_Companie.Contains(User.Identity.Name))
             {
                 @Html.ActionLink("Delete", "Delete", new { id = item.IdCompanie })
             }
-        }
+        }*@
 
 
 </tr>

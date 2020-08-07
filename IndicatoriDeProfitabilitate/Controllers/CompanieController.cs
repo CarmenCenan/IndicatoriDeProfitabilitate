@@ -83,7 +83,7 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // GET: Companie/Delete/5
-        [Authorize(Roles = "User, Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(Guid id)
         {
             Models.CompanieModel companieModel = companieRepository.GetCompanieById(id);
@@ -91,7 +91,7 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // POST: Companie/Delete/5
-        [Authorize(Roles = "User, Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Delete(Guid id, FormCollection collection)
         {

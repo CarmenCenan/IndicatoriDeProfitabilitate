@@ -6,10 +6,11 @@
 }
 
 
-<h2>Rotatii</h2>
+@*<h2>Rotatii</h2>*@
+
 
 <p>
-    @Html.ActionLink("Adauga", "Create")
+    @Html.ActionLink("Adaugă date", "Create")
 </p>
 <table class="table">
     <tr>
@@ -31,9 +32,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Valoare_indicator)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Public)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -58,9 +59,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Valoare_indicator)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Public)
-            </td>
+            </td>*@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.IdRotatie }) |
                 @Html.ActionLink("Details", "Details", new { id = item.IdRotatie }) |

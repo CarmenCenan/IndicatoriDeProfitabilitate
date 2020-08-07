@@ -17,20 +17,23 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // GET: User/Details/5
+        [AllowAnonymous]
         public ActionResult Details(Guid id)
         {
             Models.UserModel userModel = userRepository.GetUserById(id);
 
-            return View("UserDetails", userModel);
+            return View("DetailsUser", userModel);
         }
 
         // GET: User/Create
+        [Authorize(Roles = "User, Admin")]
         public ActionResult Create()
         {
             return View("CreateUser");
         }
 
         // POST: User/Create
+        [Authorize(Roles = "User, Admin")]
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -49,6 +52,7 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // GET: User/Edit/5
+        [Authorize(Roles = "User, Admin")]
         public ActionResult Edit(Guid id)
         {
             Models.UserModel userModel = userRepository.GetUserById(id);
@@ -57,6 +61,7 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // POST: User/Edit/5
+        [Authorize(Roles = "User, Admin")]
         [HttpPost]
         public ActionResult Edit(Guid id, FormCollection collection)
         {
@@ -75,14 +80,15 @@ namespace IndicatoriDeProfitabilitate.Controllers
         }
 
         // GET: User/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(Guid id)
         {
             Models.UserModel userModel = userRepository.GetUserById(id);
-
             return View("DeleteUser", userModel);
         }
 
         // POST: User/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Delete(Guid id, FormCollection collection)
         {
